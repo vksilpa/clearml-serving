@@ -547,12 +547,13 @@ class ServingService(object):
 
                 if verbose:
                     print('Update model v{} in {}'.format(version, model_folder))
+                    print("********local_path********", local_path)
 
                 # if this is a folder copy every and delete the temp folder
                 if local_path.is_dir():
                     # we assume we have a `tensorflow.savedmodel` folder
-                    model_folder /= 'model.savedmodel'
-                    model_folder.mkdir(parents=True, exist_ok=True)
+                    #model_folder /= 'model.savedmodel'
+                    #model_folder.mkdir(parents=True, exist_ok=True)
                     # rename to old
                     old_folder = None
                     if model_folder.exists():
@@ -560,6 +561,9 @@ class ServingService(object):
                         model_folder.replace(old_folder)
                     if verbose:
                         print('copy model into {}'.format(model_folder))
+                        print('copy model into {}'.format(model_folder))
+                        print("********local_path********", local_path)
+                        print("**model_folder.parent*********", model_folder.parent)
                     shutil.copytree(
                         local_path.as_posix(), model_folder.as_posix(), symlinks=False,
                     )
