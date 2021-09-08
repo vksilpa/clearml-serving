@@ -554,7 +554,7 @@ class ServingService(object):
                     # we assume we have a `tensorflow.savedmodel` folder
                     if 'tensorflow_savedmodel' in endpoint.model_config_blob:
                         model_folder /= 'model.savedmodel'
-                        model_folder.mkdir(parents=True, exist_ok=True)
+                    model_folder.mkdir(parents=True, exist_ok=True)
                     # rename to old
                     old_folder = None
                     if model_folder.exists():
