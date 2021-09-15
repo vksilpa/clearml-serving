@@ -57,9 +57,9 @@ class ServingService(object):
             if not self._task:
                 self._task = Task.create(
                     project_name=task_project, task_name=task_name, task_type=Task.TaskTypes.service,
-                    repo="https://github.com/allegroai/clearml-serving.git",
+                    repo="https://github.com/vksilpa/clearml-serving.git",
                     branch="main",
-                    commit="ad049c51c146e9b7852f87e2f040e97d88848a1f",
+                    commit="daf944687c2d15c325308e4d2481d4e8a1398455",
                     script="clearml_serving/service.py",
                     working_directory=".",
                     add_task_init_call=False,
@@ -201,9 +201,9 @@ class ServingService(object):
                 project_name=self._task.get_project_name(),
                 task_name="triton serving engine",
                 task_type=Task.TaskTypes.inference,
-                repo="https://github.com/allegroai/clearml-serving.git",
+                repo="https://github.com/vksilpa/clearml-serving.git",
                 branch="main",
-                commit="ad049c51c146e9b7852f87e2f040e97d88848a1f",
+                commit="daf944687c2d15c325308e4d2481d4e8a1398455",
                 script="clearml_serving/triton_helper.py",
                 working_directory=".",
                 docker=container or engine_type_container,
@@ -215,6 +215,9 @@ class ServingService(object):
                     'azure-storage-blob>=2.0.1,<=2.1',
                     'google-cloud-storage>=1.13.2',
                     'boto3>=1.9',
+                    'joblib==1.0.1',
+                    'scikit-learn==0.23.2',
+                    'sklearn==0.0'
                 ],
             )
             if verbose:
